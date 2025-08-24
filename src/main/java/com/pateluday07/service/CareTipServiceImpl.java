@@ -1,7 +1,6 @@
 package com.pateluday07.service;
 
 import com.pateluday07.dto.CareTipDTO;
-import com.pateluday07.dto.CareTipResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,12 +21,12 @@ public class CareTipServiceImpl implements CareTipService {
     }
 
     @Override
-    public CareTipResponseDTO saveCareTip(CareTipDTO careTipDTO) {
+    public CareTipDTO saveCareTip(CareTipDTO careTipDTO) {
         if (careTipDTO.getPlantId() == null || careTipDTO.getTip() == null || careTipDTO.getTip().isEmpty())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Plant ID and tip cannot be null or empty");
 
         CARE_TIP_DUMMY_DB.put(careTipDTO.getPlantId(), careTipDTO);
 
-        return new CareTipResponseDTO(careTipDTO.getPlantId(), "Care tip saved successfully");
+        return new CareTipDTO(careTipDTO.getPlantId(), "Care tip saved successfully");
     }
 }

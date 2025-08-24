@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: care-tip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: care-tip-service
+  ports:
+    - port: 80
+      targetPort: 8080

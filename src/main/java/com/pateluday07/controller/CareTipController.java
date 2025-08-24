@@ -1,7 +1,6 @@
 package com.pateluday07.controller;
 
 import com.pateluday07.dto.CareTipDTO;
-import com.pateluday07.dto.CareTipResponseDTO;
 import com.pateluday07.service.CareTipService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ public class CareTipController {
     }
 
     @PostMapping
-    public ResponseEntity<CareTipResponseDTO> saveCareTip(@RequestBody CareTipDTO careTipDTO) {
+    public ResponseEntity<CareTipDTO> saveCareTip(@RequestBody CareTipDTO careTipDTO) {
         return ResponseEntity.ok(careTipService.saveCareTip(careTipDTO));
     }
 }

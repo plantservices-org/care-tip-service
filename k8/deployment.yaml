@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: care-tip-service-deployment
+  labels:
+    app: care-tip-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: care-tip-service
+  template:
+    metadata:
+      labels:
+        app: care-tip-service
+    spec:
+      containers:
+        - name: care-tip-service-container
+          image: uday07/care-tip-service
+          ports:
+            - containerPort: 8080
